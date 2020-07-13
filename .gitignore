@@ -1,0 +1,40 @@
+#
+# GroWorks GITIGNORE for Node Projects
+#
+# This is a common file for all of our projects.
+# Since we use git to keep track of any changes
+# we make in our codebase, we often will have
+# files that, while helpful in development on our
+# machines, are not helpful and might be harmful
+# on the production servers.
+#
+# We can tell our computer to not track these files
+# and to ignore them by adding a glob that matches
+# their path here.
+#
+
+# We install the node_modules each time we deploy
+# so we don't need or want to track them
+node_modules/
+
+# We build before deploying so we don't want to
+# track any build files
+build/
+dist/
+
+# We put secrets inside of the .env file so we don't
+# want to track that!
+.env
+
+# We have a convention of putting private notes insdie
+# of files that have the .private. naming
+*.private.*
+
+# We don't want to keep any logs, error or otherwise,
+# when we deploy
+*.log
+*.log.*
+
+# MacOS always seems to have this file around but
+# we don't need it at all
+DS_STORE

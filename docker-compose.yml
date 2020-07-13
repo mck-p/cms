@@ -1,0 +1,12 @@
+version: '3'
+services:
+  datastore:
+    image: postgres
+    ports:
+      - "9898:5432"
+    env_file: .env.pg
+  
+  cache:
+    image: redis
+    ports:
+      - "9098:6379"
