@@ -2,6 +2,11 @@ import React, { useEffect } from 'react'
 import { Switch, Route, useHistory } from 'react-router-dom'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { useSelector, useDispatch } from 'react-redux'
+import * as R from 'ramda'
+
+
+import * as Lenses from '@/client/State/lenses'
+
 
 import Admin from '@/client/App/Admin'
 import Login from '@/client/App/Login'
@@ -9,7 +14,7 @@ import Pages from '@/client/App/Pages'
 
 const App = () => {
   const history = useHistory()
-  const pages = useSelector(({ pages }) => pages)
+  const pages = useSelector(R.view(Lenses.pages))
   const dispatch = useDispatch()
 
   useEffect(

@@ -5,6 +5,10 @@ import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
+import * as R from 'ramda'
+
+import * as Lenses from '@/client/State/lenses'
+
 const HeaderLink = styled(Link)`
   color: inherit;
   text-decoration: none;
@@ -28,7 +32,10 @@ const Nav = styled.nav`
 `
 
 const Header = ({ text, logo, menu_id }) => {
-  const menu = useSelector(({ menus }) => menus[menu_id] || { items: [] })
+  const menu = useSelector(R.compose(
+    R.defaultTo({ items: [] }),
+    R.view(Lenses.menu_by_id(menu_id))
+  ))
 
   return (
     <HeaderWrapper>

@@ -9,6 +9,10 @@ import { Link, Redirect, useRouteMatch } from 'react-router-dom'
 
 import { Switch, Route } from 'react-router-dom'
 
+import * as R from 'ramda'
+
+import * as Lenses from '@/client/State/create'
+
 import Dashboard from '@/client/App/Admin/Dashboard'
 import Collections from '@/client/App/Admin/Collections'
 import Pages from '@/client/App/Admin/Pages'
@@ -54,7 +58,7 @@ const Footer = styled.footer``
 const Main = styled.main``
 
 const Admin = () => {
-  const site_info = useSelector(({ site }) => site)
+  const site_info = useSelector(R.view(Lenses.site_info))
   const match = useRouteMatch()
 
   return (
