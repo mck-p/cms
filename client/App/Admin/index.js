@@ -11,7 +11,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import * as R from 'ramda'
 
-import * as Lenses from '@/client/State/create'
+import * as Lenses from '@/client/State/lenses'
 
 import Dashboard from '@/client/App/Admin/Dashboard'
 import Collections from '@/client/App/Admin/Collections'

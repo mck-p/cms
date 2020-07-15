@@ -18,22 +18,20 @@ export const analytics = (event) =>
     body: JSON.stringify(event),
   })
 
-export const page_view = () =>
-  analytics({
-    type: 'PAGE_VIEW',
-    page: window.location.pathname,
-    search: [...new URLSearchParams(window.location.search).entries()].reduce(
-      (a, c) => ({
-        ...a,
-        [c[0]]: c[1],
-      }),
-      {}
-    ),
-    viewed_at: new Date().toISOString(),
-  })
+export const page_view = () => ({
+  type: 'PAGE_VIEW',
+  page: window.location.pathname,
+  search: [...new URLSearchParams(window.location.search).entries()].reduce(
+    (a, c) => ({
+      ...a,
+      [c[0]]: c[1],
+    }),
+    {}
+  ),
+  viewed_at: new Date().toISOString(),
+})
 
-export const page_visit_with_time = () => {
-  const start = Date.now()
+export const page_visit_with_time = (start = Date.now()) => {
   const args = {
     type: 'PAGE_VISIT_TIME',
     page: window.location.pathname,

@@ -4,9 +4,8 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { useSelector, useDispatch } from 'react-redux'
 import * as R from 'ramda'
 
-
 import * as Lenses from '@/client/State/lenses'
-
+import * as Actions from '@/client/State/actions'
 
 import Admin from '@/client/App/Admin'
 import Login from '@/client/App/Login'
@@ -21,7 +20,7 @@ const App = () => {
     () =>
       history.listen((event) =>
         dispatch({
-          type: 'HISTORY_CHANGE',
+          type: Actions.Routing.HISTORY_CHANGE,
           payload: event,
         })
       ),

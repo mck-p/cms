@@ -32,10 +32,9 @@ const Nav = styled.nav`
 `
 
 const Header = ({ text, logo, menu_id }) => {
-  const menu = useSelector(R.compose(
-    R.defaultTo({ items: [] }),
-    R.view(Lenses.menu_by_id(menu_id))
-  ))
+  const menu = useSelector(
+    R.compose(R.defaultTo({ items: [] }), R.view(Lenses.menu_by_id(menu_id)))
+  )
 
   return (
     <HeaderWrapper>
